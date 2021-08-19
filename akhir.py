@@ -41,7 +41,7 @@ def message(msg, color):
     dis.blit(mesg, [dis_width / 6, dis_height / 3])
 
 
-def gameLoop():  # creating a function
+def gameLoop():
     game_over = False
     game_close = False
 
@@ -56,8 +56,8 @@ def gameLoop():  # creating a function
 
     foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
     foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0
-    posisi= time.localtime().tm_sec #tambahan
-    speed = 0 #tambahan
+    posisi= time.localtime().tm_sec
+    speed = 0
     while not game_over:
 
         while game_close == True:
@@ -117,22 +117,22 @@ def gameLoop():  # creating a function
         if x1 == foodx and y1 == foody:
             foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
             foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0
-            posisi = time.localtime().tm_sec #tambahan
-            speed+=2 #tambahan (untuk nambah laju setiap makan, makin besar angka, makin cepat laju)
+            posisi = time.localtime().tm_sec
+            speed+=2
             Length_of_snake += 1
-        # untuk menaruh makanan random setiap 7 detik
-        elif posisi<50: #tambahan
-            posisi_sekarang=time.localtime().tm_sec #tambahan
-            if posisi_sekarang==posisi+7: #tambahan (angka 7 menunjukan detik perpindahan makanan)
-                foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0 #tambahan
-                foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0 #tambahan
-                posisi = time.localtime().tm_sec #tambahan
+       
+        elif posisi<50:
+            posisi_sekarang=time.localtime().tm_sec
+            if posisi_sekarang==posisi+7:
+                foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
+                foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0
+                posisi = time.localtime().tm_sec
         else: #tambahan
-            posisi_sekarang = time.localtime().tm_sec #tambahan
-            if posisi_sekarang==(posisi+7)-60: #tambahan (angka 7 menunjukan detik perpindahan makanan)
-                foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0 #tambahan
-                foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0 #tambahan
-                posisi = time.localtime().tm_sec #tambahan
+            posisi_sekarang = time.localtime().tm_sec
+            if posisi_sekarang==(posisi+7)-60:
+                foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
+                foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0
+                posisi = time.localtime().tm_sec
 
 
         clock.tick(snake_speed+speed)
